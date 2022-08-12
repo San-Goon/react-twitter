@@ -41,19 +41,19 @@ const Signup = () => {
             <div>
                 <label htmlFor={"user-id"}>아이디</label>
                 <br />
-                <Input name={"user-id"} value={id} required onChange={onChangeId} placeHolder={"6자이상 12자이하"} />
+                <Input name={"user-id"} value={id} required onChange={onChangeId} placeholder={"6자이상 12자이하"} />
                 {idError && <ErrorMessage>아이디는 6자이상, 12자이하여야 합니다.</ErrorMessage>}
             </div>
             <div>
                 <label htmlFor={"user-nickname"}>닉네임</label>
                 <br />
-                <Input name={"user-nickname"} value={nickname} required onChange={onChangeNickname} placeHolder={"2자이상 8자이하"} />
+                <Input name={"user-nickname"} value={nickname} required onChange={onChangeNickname} placeholder={"2자이상 8자이하"} />
                 {nicknameError && <ErrorMessage>닉네임은 2자이상, 8자이하여야 합니다.</ErrorMessage>}
             </div>
             <div>
                 <label htmlFor={"user-password"}>비밀번호</label>
                 <br />
-                <Input name={"user-password"} type={"password"} value={password} required onChange={onChangePassword} placeHolder={"8자이상 20자이하"} />
+                <Input name={"user-password"} type={"password"} value={password} required onChange={onChangePassword} placeholder={"8자이상 20자이하"} />
                 {passwordError && <ErrorMessage>비밀번호는 8자이상, 20자이하여야 합니다.</ErrorMessage>}
             </div>
             <div>
