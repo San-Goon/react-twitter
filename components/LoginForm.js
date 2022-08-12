@@ -36,9 +36,9 @@ const LoginForm = ({setIsLoggedIn}) => {
                 <Input name={"user-id"} value={id} onChange={onChangeId} required/>
             </div>
             <div>
-                <label htmlFor={"user-id"}>비밀번호</label>
+                <label htmlFor={"user-password"}>비밀번호</label>
                 <br />
-                <Input name={"user-id"}
+                <Input name={"user-password"}
                        type={"password"}
                        value={password}
                        onChange={onChangePassword}
