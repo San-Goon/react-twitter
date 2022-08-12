@@ -12,6 +12,5 @@ export default (initialValue = null, min, max) => {
             setError(false)
         }
     }, [])
-    console.log(error)
     return [value, handler, error]
 }
