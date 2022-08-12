@@ -2,7 +2,7 @@ import AppLayout from "../components/AppLayout";
 
 const Home = () => {
     return (
-        <AppLayout>
+        <AppLayout selected={"home"}>
             <div>Hello, Next!</div>
         </AppLayout>
     )

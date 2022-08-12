@@ -12,7 +12,7 @@ const Profile = () => {
             <Head>
                 <title>프로필 | twitter</title>
             </Head>
-            <AppLayout>
+            <AppLayout selected={"profile"}>
                 <NicknameEditForm />
                 <FollowList header={"팔로잉 목록"} data={followingList} />
                 <FollowList header={"팔로워 목록"} data={followerList} />

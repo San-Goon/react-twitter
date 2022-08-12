@@ -33,7 +33,7 @@ const Signup = () => {
         },[password, passwordCheck, idError, nicknameError, passwordError, passwordCheckError]
     )
 
-    return <AppLayout>
+    return <AppLayout selected={"signup"}>
         <Head>
             <title>회원가입 | twitter</title>
         </Head>
