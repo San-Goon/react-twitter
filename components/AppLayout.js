@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 import UserProfile from "./UserProfile"
 import LoginForm from "./LoginForm"
+import {useSelector} from "react-redux";
 
 const SearchInput = styled(Input.Search) `
   vertical-align: middle;
@@ -31,7 +32,7 @@ const menuItems = [
 ]
 
 const AppLayout = ({selected, children}) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
     const [current, setCurrent] = useState(selected ? selected : "home");
     const onMenu = useCallback((e) => {
         setCurrent(e.key)
@@ -43,7 +44,7 @@ const AppLayout = ({selected, children}) => {
             </Menu>
             <Row gutter={8}>
                 <Col xs={24} md={6}>
-                    {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
+                    {isLoggedIn ? <UserProfile /> : <LoginForm />}
                 </Col>
                 <Col xs={24} md={12}>
                     {children}
