@@ -5,7 +5,6 @@ export default (initialValue = null, min, max) => {
     const [error, setError] = useState(false)
     const handler = useCallback((e) => {
         setValue(e.target.value)
-        console.log(e.target.value, e.target.value.length, min, max)
         if (e.target.value.length < min || e.target.value.length > max) {
             setError(true)
         } else {
