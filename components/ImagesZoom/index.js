@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import Slick from "react-slick";
 import {useState} from "react";
 import styled, {createGlobalStyle} from "styled-components";
+import {CloseOutlined} from "@ant-design/icons";
 
 const Overlay = styled.div`
   position: fixed;
@@ -62,6 +63,15 @@ const Global = createGlobalStyle`
   }
 `
 
+const CloseBtn = styled(CloseOutlined)`
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 15px;
+  line-height: 14px;
+  cursor: pointer;
+`
+
 
 
 const SlickWrapper = styled.div`
@@ -86,7 +96,7 @@ const ImagesZoom = ({images, onClose}) => {
             <Global />
             <Header>
                 <h1>상세이미지</h1>
-                <button onClick={onClose}>X</button>
+                <CloseBtn onClick={onClose}>X</CloseBtn>
             </Header>
             <SlickWrapper>
                 <div>
