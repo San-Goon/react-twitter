@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Slick from "react-slick";
 import {useState} from "react";
-import styled from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
 
 const Overlay = styled.div`
   position: fixed;
@@ -36,6 +36,34 @@ const Header = styled.header`
   }
 `;
 
+const Indicator = styled.div`
+  text-align: center;
+  
+  & > div {
+    width: 75px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    background: #313131;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+  }
+`
+
+const Global = createGlobalStyle`
+  .slick-slide {
+    display: inline-block;
+  }
+  
+  .ant-card-cover {
+    transform: none !important;
+  }
+`
+
+
+
 const SlickWrapper = styled.div`
   height: calc(100% - 44px);
   background: #090909;
@@ -55,6 +83,7 @@ const ImagesZoom = ({images, onClose}) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     return (
         <Overlay>
+            <Global />
             <Header>
                 <h1>상세이미지</h1>
                 <button onClick={onClose}>X</button>
