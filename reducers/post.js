@@ -7,7 +7,11 @@ export const initialState = {
         },
         content: "하위 ^^ #하이",
         Images: [{
-
+            src: "https://cdn.motorplex.co.kr/news/photo/202112/2358_9142_4537.jpg"
+        }, {
+            src: "https://media.ed.edmunds-media.com/porsche/cayenne/2021/oem/2021_porsche_cayenne_4dr-suv_base_fq_oem_1_815.jpg"
+        }, {
+            src: "https://www.ccarprice.com/products/Tesla-Model-3-Performance-2022.jpg"
         }],
         Comments: [{
             User: {
