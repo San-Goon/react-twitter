@@ -5,6 +5,7 @@ import { Overlay, Global, Header, CloseBtn, ImgWrapper, Indicator, SlickWrapper 
 
 const ImagesZoom = ({images, onClose}) => {
     const [currentSlide, setCurrentSlide] = useState(0);
+
     return (
         <Overlay>
             <Global />

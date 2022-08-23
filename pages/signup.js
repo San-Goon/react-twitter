@@ -6,6 +6,8 @@ import LoginForm from "../components/LoginForm";
 import PropTypes from "prop-types";
 import useInput from "../hooks/useInput";
 import styled from "styled-components";
+import {useDispatch, useSelector} from "react-redux";
+import {SIGN_UP_REQUEST} from "../reducers/user";
 
 const ErrorMessage = styled.div`
   color: red;
@@ -17,6 +19,9 @@ const Signup = () => {
     const [password, onChangePassword, passwordError] = useInput("",8,20);
     const [passwordCheck, setPasswordCheck] = useState("");
     const [passwordCheckError, setPasswordCheckError] = useState(false);
+
+    const dispatch = useDispatch();
+    const signUpLoading = useSelector((state) => state.user.signUpLoading);
 
     const onChangePasswordCheck = useCallback((e) => {
         setPasswordCheck(e.target.value);
@@ -30,6 +35,7 @@ const Signup = () => {
             if (idError || nicknameError || passwordError || passwordCheckError)  {
                 return;
             }
+            dispatch({ type: SIGN_UP_REQUEST, data: {id, password, nickname}})
         },[password, passwordCheck, idError, nicknameError, passwordError, passwordCheckError]
     )
 
@@ -63,7 +69,7 @@ const Signup = () => {
                 {passwordCheckError && <ErrorMessage>비밀번호가 일치하지 않습니다.</ErrorMessage>}
             </div>
             <div style={{ marginTop: 10}}>
-                <Button type={"primary"} htmlType={"submit"}>가입하기</Button>
+                <Button type={"primary"} htmlType={"submit"} loading={signUpLoading}>가입하기</Button>
             </div>
         </Form>
     </AppLayout>

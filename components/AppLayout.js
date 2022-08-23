@@ -47,8 +47,10 @@ const menuItems = [
 ]
 
 const AppLayout = ({selected, children}) => {
-    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
     const [current, setCurrent] = useState(selected ? selected : "home");
+
+    const me = useSelector((state) => state.user.me);
+
     const onMenu = useCallback((e) => {
         setCurrent(e.key)
     },[])
@@ -60,7 +62,7 @@ const AppLayout = ({selected, children}) => {
             </Menu>
             <Row gutter={8}>
                 <Col xs={24} md={6}>
-                    {isLoggedIn ? <UserProfile /> : <LoginForm />}
+                    {me ? <UserProfile /> : <LoginForm />}
                 </Col>
                 <Col xs={24} md={12}>
                     {children}
