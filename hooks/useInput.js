@@ -11,5 +11,5 @@ export default (initialValue = null, min, max) => {
             setError(false)
         }
     }, [])
-    return [value, handler, error]
+    return [value, handler, error, setValue];
 }
