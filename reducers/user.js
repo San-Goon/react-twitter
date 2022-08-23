@@ -8,6 +8,9 @@ export const initialState = {
     signUpLoading: false,
     signUpDone: false,
     signUpError: null,
+    changeNicknameLoading: false,
+    changeNicknameDone: false,
+    changeNicknameError: null,
     me: null,
     signUpData: {},
     loginData: {},
@@ -41,6 +44,10 @@ export const FOLLOW_FAILURE = "FOLLOW_FAILURE";
 export const UNFOLLOW_REQUEST = "UNFOLLOW_REQUEST";
 export const UNFOLLOW_SUCCESS = "UNFOLLOW_SUCCESS";
 export const UNFOLLOW_FAILURE = "UNFOLLOW_FAILURE";
+
+export const CHANGE_NICKNAME_REQUEST = "CHANGE_NICKNAME_REQUEST";
+export const CHANGE_NICKNAME_SUCCESS = "CHANGE_NICKNAME_SUCCESS";
+export const CHANGE_NICKNAME_FAILURE = "CHANGE_NICKNAME_FAILURE";
 
 
 export const loginRequestAction = (data) => {
@@ -101,14 +108,14 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 signUpLoading: true,
-                singUpDone: false,
+                signUpDone: false,
                 signUpError: null,
             }
         case SIGN_UP_SUCCESS:
             return {
                 ...state,
                 signUpLoading: false,
-                singUpDone: true,
+                signUpDone: true,
                 me: null,
             }
         case SIGN_UP_FAILURE:
@@ -116,6 +123,26 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 signUpLoading: false,
                 signUpError: action.error,
+            }
+        case CHANGE_NICKNAME_REQUEST:
+            return {
+                ...state,
+                changeNicknameLoading: true,
+                changeNicknameDone: false,
+                changeNicknameError: null,
+            }
+        case CHANGE_NICKNAME_SUCCESS:
+            return {
+                ...state,
+                changeNicknameLoading: false,
+                changeNicknameDone: true,
+                me: null,
+            }
+        case CHANGE_NICKNAME_FAILURE:
+            return {
+                ...state,
+                changeNicknameLoading: false,
+                changeNicknameError: action.error,
             }
         default:
             return state;
