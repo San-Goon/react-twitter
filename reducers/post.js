@@ -26,7 +26,6 @@ export const initialState = {
         }]
     }],
     imagePaths: [],
-    postAdded: false,
     addPostLoading: false,
     addPostDone: false,
     addPostError: null,
@@ -54,16 +53,16 @@ export const addComment = (data) => ({
 })
 
 
-const dummyPost = {
+const dummyPost =(data) =>  ({
     id: 2,
-    content: "더미",
+    content: data,
     User: {
         id: 1,
         nickname: "산군"
     },
     Images: [],
     Comments: [],
-}
+})
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -77,7 +76,7 @@ const reducer = (state = initialState, action) => {
         case ADD_POST_SUCCESS:
             return {
                 ...state,
-                mainPosts: [dummyPost, ...state.mainPosts],
+                mainPosts: [dummyPost(action.data), ...state.mainPosts],
                 addPostLoading: false,
                 addPostDone: true,
             }
