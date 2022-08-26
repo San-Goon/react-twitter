@@ -1,4 +1,4 @@
-import produce from "immer/dist/immer";
+import produce from "immer";
 
 export const initialState = {
     logInLoading: false,

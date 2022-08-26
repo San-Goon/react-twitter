@@ -1,5 +1,6 @@
-import shortId from "shortid"
-import produce from "immer/dist/immer";
+import shortId from "shortid";
+import produce from "immer";
+import faker from "faker";
 
 export const initialState = {
     mainPosts: [{
