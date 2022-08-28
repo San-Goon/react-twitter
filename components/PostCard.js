@@ -53,6 +53,7 @@ const PostCard = ({post}) => {
                         <EllipsisOutlined />
                     </Popover>
                 ]}
+                extra={<FollowButton post={post} />}
             >
                 <Card.Meta
                     avatar={<Avatar>{post.User.nickname[0]}</Avatar>}
